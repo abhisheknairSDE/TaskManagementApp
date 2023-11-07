@@ -5,8 +5,9 @@
 /.pnp
 .pnp.js
 
-# Ignore .env file in the backend folder
+# Ignore .env & node_modules file in the backend folder
 /backend/.env
+/backend/node_modules
 
 # testing
 /coverage
