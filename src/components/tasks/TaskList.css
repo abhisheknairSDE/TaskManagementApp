@@ -1,0 +1,17 @@
+/* TaskList.css */
+.task-list-wrapper {
+    background-color: #f7f7f7;
+    padding: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .task-item {
+    margin-bottom: 8px;
+    list-style: none;
+    padding: 8px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
