@@ -1,18 +1,23 @@
 import { useState } from "react";
 import "./TaskForm.css";
+import { useDispatch, useSelector } from "react-redux";
+import { addTasks } from "../../actions/tasksActions";
 
 const TaskForm = (props) => {
   const [inputTitle, setInputTitle] = useState("");
   const [inputDesciption, setInputDesciption] = useState("");
+  const createdBy = useSelector(state => state.auth.user);
+  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const newTask = {
-      id: new Date().getTime().toString(),
-      name: inputTitle,
-      desc: inputDesciption,
+      title: inputTitle,
+      description: inputDesciption,
+      createdBy: '64faba342f03b484e1d00ab4',
     };
-    props.onTaskSubmit(newTask);
+    //props.onTaskSubmit(newTask);
+    dispatch(addTasks(newTask))
     setInputTitle("");
     setInputDesciption("");
   };

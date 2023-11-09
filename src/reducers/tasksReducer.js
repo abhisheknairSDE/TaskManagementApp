@@ -4,10 +4,15 @@ const initialState = {
 
 const tasksReducer = (state = initialState, action) => {
   switch (action.type) {
+    case "FETCH":
+      return {
+        ...state,
+        tasks: [...action.payload],
+      };
     case "ADD":
       return {
         ...state,
-        tasks: [...state.tasks, action.payload],
+        tasks: [...state.tasks, ...action.payload],
       };
     case "DELETE":
         return {
