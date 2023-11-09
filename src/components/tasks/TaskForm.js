@@ -28,7 +28,8 @@ const TaskForm = (props) => {
           value={inputTitle}
           onChange={(e) => setInputTitle(e.target.value)}
         />
-        <textarea
+        <input
+          type="text"
           className="form-textarea"
           placeholder="Description"
           value={inputDesciption}

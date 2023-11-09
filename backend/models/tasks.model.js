@@ -12,6 +12,7 @@ const taskSchema = new mongoose.Schema({
   createdBy: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User', // Reference to the User model for the creator of the task
+    required: true,
   },
   createdAt: {
     type: Date,

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import TaskForm from "../components/tasks/TaskForm";
 import TaskList from "../components/tasks/TaskList";
+import './Dashboard.css'
 
 const dummyData = [
   {
@@ -38,9 +39,13 @@ const Dashboard = (props) => {
   };
 
   return (
-    <div>
-      <TaskForm onTaskSubmit={handleTaskSubmit} />
-      <TaskList tasks={dummyData} onEdit={handleEdit} onDelete={handleDelete} />
+    <div className="dashboard-container">
+      <div className="task-form">
+        <TaskForm onTaskSubmit={handleTaskSubmit} />
+      </div>
+      <div className="task-list">
+        <TaskList tasks={dummyData} onEdit={handleEdit} onDelete={handleDelete} />
+      </div>
     </div>
   );
 };
