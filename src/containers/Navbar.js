@@ -1,19 +1,24 @@
 import { Link } from 'react-router-dom'; // If you're using React Router
 import { useSelector, useDispatch } from 'react-redux'
+import { logoutUser } from '../actions/authActions';
 import './Navbar.css'
 
-const Navbar = ({ user, onLogout }) => {
-    const user1 = useSelector((state) => state.user);
+const Navbar = () => {
+    const isLoggedIn = useSelector((state) => state.auth.userIsLoggedIn);
+    const dispatch = useDispatch();
+    const logoutHandler = () => {
+      dispatch(logoutUser());
+    }
   return (
     <div className="navbar">
       <div className="navbar-left">
         <span>App Name</span>
       </div>
       <div className="navbar-right">
-        {user1 ? (
+        {isLoggedIn ? (
           <>
             <Link to="/tasks">See Tasks</Link>
-            <button onClick={onLogout}>Logout</button>
+            <button onClick={logoutHandler}>Logout</button>
           </>
         ) : (
           <Link to="/login">Login</Link>

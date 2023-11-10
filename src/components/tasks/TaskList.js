@@ -5,11 +5,15 @@ import './TaskList.css';
 
 const TaskList = (props) => {
   const tasks = useSelector(state => state.tasks.tasks)
-  const user = useSelector(state => state.auth.user)
+  const isLoggedIn = useSelector(state => state.auth.userIsLoggedIn)
+  const userId = useSelector(state => state.auth.userId)
   const dispatch = useDispatch();
   
   useEffect(() => {
-    dispatch(fetchTasks({ userId: '64faba342f03b484e1d00ab4'}));
+    if(isLoggedIn){
+      dispatch(fetchTasks({ userId }));
+    }
+    
   }, [dispatch, tasks])
 
   return (

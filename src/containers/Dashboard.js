@@ -1,28 +1,14 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import TaskForm from "../components/tasks/TaskForm";
 import TaskList from "../components/tasks/TaskList";
 import './Dashboard.css'
-
-const dummyData = [
-  {
-    id: "1",
-    title: "Title1",
-    description: "Desc1",
-  },
-  {
-    id: "2",
-    title: "Title2",
-    description: "Desc2",
-  },
-];
+import Login from "../components/authenticaton/Login";
 
 const Dashboard = (props) => {
+  const isLoggedIn = useSelector(state => state.auth.userIsLoggedIn);
   const [tasks, setTasks] = useState([]);
   const [selectedTask, setSelectedTask] = useState(null);
-
-  const handleTaskSubmit = () => {
-    console.log("Submitted");
-  };
 
   const handleEdit = (id, updatedTask) => {
     setTasks((prevTasks) => {
@@ -40,12 +26,13 @@ const Dashboard = (props) => {
 
   return (
     <div className="dashboard-container">
-      <div className="task-form">
-        <TaskForm onTaskSubmit={handleTaskSubmit} />
-      </div>
-      <div className="task-list">
-        <TaskList tasks={dummyData} onEdit={handleEdit} onDelete={handleDelete} />
-      </div>
+      {!isLoggedIn && <Login />}
+      {isLoggedIn && <div className="task-form">
+        <TaskForm />
+      </div>}
+      {isLoggedIn && <div className="task-list">
+        <TaskList onEdit={handleEdit} onDelete={handleDelete} />
+      </div>}
     </div>
   );
 };
