@@ -21,7 +21,7 @@ const Navbar = () => {
             <button onClick={logoutHandler}>Logout</button>
           </>
         ) : (
-          <Link to="/login">Login</Link>
+          <Link to="login">Login</Link>
         )}
       </div>
     </div>

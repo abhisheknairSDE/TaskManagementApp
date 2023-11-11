@@ -3,10 +3,10 @@ import "./TaskForm.css";
 import { useDispatch, useSelector } from "react-redux";
 import { addTasks } from "../../actions/tasksActions";
 
-const TaskForm = (props) => {
+const TaskForm = () => {
   const [inputTitle, setInputTitle] = useState("");
   const [inputDesciption, setInputDesciption] = useState("");
-  const createdBy = useSelector(state => state.auth.user);
+  const createdBy = useSelector(state => state.auth.userId);
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
@@ -14,9 +14,8 @@ const TaskForm = (props) => {
     const newTask = {
       title: inputTitle,
       description: inputDesciption,
-      createdBy: '64faba342f03b484e1d00ab4',
+      createdBy: createdBy,
     };
-    //props.onTaskSubmit(newTask);
     dispatch(addTasks(newTask))
     setInputTitle("");
     setInputDesciption("");

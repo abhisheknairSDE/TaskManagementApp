@@ -15,7 +15,7 @@ router.route("/add").post(async (req, res) => {
     });
     newUser
       .save()
-      .then(() => res.json("User Added"))
+      .then((user) => res.json({name: user.name, userId: user._id}))
       .catch((err) => res.status(400).json(err));
   } catch (err) {
     res.status(500).json(err);

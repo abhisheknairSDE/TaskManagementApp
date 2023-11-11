@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { loginUser } from '../../actions/authActions';
 import './Login.css'
 import logo from './logo.png'
@@ -97,7 +98,7 @@ function Login() {
         </form>
       </div>
       <div className="footer-text">
-        <p>Don't have an account? <a href="#">Sign Up</a></p>
+        <p>Don't have an account? <Link to="/signup">Sign Up</Link></p>
       </div>
     </div>
   );
