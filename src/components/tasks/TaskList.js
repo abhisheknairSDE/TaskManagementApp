@@ -8,9 +8,9 @@ import './TaskList.css';
 const PAGE_SIZE = 5; 
 
 const TaskList = () => {
-  const tasks = useSelector(state => state.tasks.tasks)
-  const isLoggedIn = useSelector(state => state.auth.userIsLoggedIn)
-  const userId = useSelector(state => state.auth.userId)
+  const tasks = useSelector(state => state.tasks.tasks)?? [];
+  const isLoggedIn = useSelector(state => state.auth.userIsLoggedIn);
+  const userId = useSelector(state => state.auth.userId);
   const dispatch = useDispatch();
   const [currentPage, setCurrentPage] = useState(1);
 

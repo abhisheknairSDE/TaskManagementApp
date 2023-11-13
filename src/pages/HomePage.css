@@ -1,49 +1,67 @@
 /* HomePage.css */
 
 .home-page {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  header {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  header h1 {
-    color: #3498db;
-  }
-  
-  header p {
-    color: #555;
-  }
-  
-  .cta-section {
-    text-align: center;
-  }
-  
-  .cta-section h2 {
-    color: #333;
-  }
-  
-  .cta-buttons {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
-  }
-  
-  button {
-    background-color: #3498db;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-  }
-  
-  button:hover {
-    background-color: #0077b6;
-  }
-  
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+header h1 {
+  color: #3498db;
+}
+
+header p {
+  color: #555;
+}
+
+.cta-section {
+  text-align: center;
+  margin-bottom: 40px; /* Added spacing */
+}
+
+.cta-section h2 {
+  color: #333;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+button {
+  background-color: #3498db;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+button:hover {
+  background-color: #0077b6;
+}
+
+.image-section {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 40px; /* Added spacing */
+}
+
+img {
+  width: 150px;
+  height: 150px;
+}
+
+
+footer {
+  text-align: center;
+  color: #888;
+  padding-top: 20px;
+}

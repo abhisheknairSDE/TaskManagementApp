@@ -1,5 +1,3 @@
-// LandingPage.js
-
 import { Link } from 'react-router-dom';
 import './LandingPage.css';
 import createTasksImage from '../images/create-tasks.png';

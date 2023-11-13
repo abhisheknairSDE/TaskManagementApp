@@ -11,10 +11,10 @@ const Navbar = () => {
       dispatch(logoutUser());
       navigate('/');
     }
-  return (
+  return (  
     <div className="navbar">
       <div className="navbar-left">
-        <Link to='/'><span>TaskBuddy</span></Link>
+        <Link to='/'><h1>TaskBuddy</h1></Link>
       </div>
       <div className="navbar-right">
         {isLoggedIn ? (

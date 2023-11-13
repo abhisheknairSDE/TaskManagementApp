@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux';
 import { addUser } from '../../actions/authActions';
-import './Signup.css'; // Import the CSS file for styling
+import logo from './logo.png'
+import './Signup.css'; 
 
 const Signup = () => {
     const dispatch = useDispatch();
@@ -43,14 +44,11 @@ const Signup = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Validation logic before submitting
     validateEmail(formData.email);
     validateName(formData.name);
     validatePassword(formData.password);
 
-    // Check if there are no validation errors
     if (Object.values(errors).every((error) => error === '')) {
-      // Proceed with signup
       const user = {
         email: formData.email,
         name: formData.name,
@@ -64,7 +62,7 @@ const Signup = () => {
   return (
     <div className="container">
       <div className="logo">
-        <img src="logo.png" alt="Logo" />
+        <img src={logo} alt="Logo" />
       </div>
       <div className="form-section">
         <h1>Sign Up</h1>
@@ -115,7 +113,7 @@ const Signup = () => {
       </div>
       <div className="footer-text">
         <p>
-          Already have an account? <a href="#">Sign In</a>
+          Already have an account? <Link to="/login">Sign In</Link>
         </p>
       </div>
     </div>

@@ -1,4 +1,4 @@
-/* Navbar.css */
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -13,10 +13,13 @@
   z-index: 1000;
 }
 
-.navbar-left {
-  font-size: 1.5rem;
+.navbar-left h1{
+  font-size: 1.8rem; /* Increase font size for the app name */
   font-weight: bold;
+  text-decoration: none; /* Remove underline */
+  color: #ffffff; /* Set text color */
 }
+
 
 .navbar-right {
   display: flex;
@@ -27,8 +30,9 @@
 .navbar-right a {
   text-decoration: none;
   color: #ffffff;
-  margin-right: 30px; /* Add spacing to the right of the link */
+  margin-right: 30px;
   font-size: 1.2rem;
+  transition: color 0.3s; /* Add transition effect */
 }
 
 .navbar-right button {
@@ -39,13 +43,14 @@
   cursor: pointer;
   border-radius: 5px;
   font-size: 1rem;
+  transition: background-color 0.3s; /* Add transition effect */
 }
 
 /* Add hover effects for links and buttons */
 .navbar-right a:hover,
 .navbar-right button:hover {
   text-decoration: underline;
-  background-color: #c0392b;
+  color: #e67e22; /* Change the color on hover */
 }
 
 /* Media query to make the navbar responsive */
@@ -56,6 +61,6 @@
   }
 
   .navbar-right {
-    margin-top: 20spx;
+    margin-top: 20px; /* Fix the typo in margin-top */
   }
 }

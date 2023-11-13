@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { editTasks } from "../../actions/tasksActions";
-import "./EditTaskForm.css"; // Add your styling here
+import "./EditTaskForm.css"; 
 
 const EditTaskForm = ({ task, onClose }) => {
   const [editedTitle, setEditedTitle] = useState(task.title);
