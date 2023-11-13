@@ -1,7 +1,10 @@
 const router = require('express').Router();
 const Task = require('../models/tasks.model');
+const jwtMiddleware = require('../middlewear/check-auth')
 
-router.route('/').get(async (req, res) => {
+
+router.route('/').get(jwtMiddleware, async (req, res) => {
+
     const userId = req.query.createdBy;
     try {
       const tasks = await Task.find({ createdBy: userId });

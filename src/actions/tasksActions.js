@@ -1,10 +1,12 @@
 import axios from "axios";
-export const fetchTasks = ({ userId }) => {
+
+export const fetchTasks = ({ userId, token }) => {
   return async (dispatch) => {
     try {
       const response = await axios.get("http://localhost:5500/tasks/", {
         params: {
           createdBy: userId,
+          token,
         },
       });
       if (response.statusText === "OK") {

@@ -30,7 +30,10 @@ router.route("/login").post(async (req, res) => {
     }
 
     if (await bcrypt.compare(req.body.password, user.password)) {
-      res.json({ message: "Success", username:user.name,userId: user._id });
+      
+      const secretKey = process.env.ACCESS_TOKEN_SECRET;
+      const token = jwt.sign({ userId: user._id }, secretKey, { expiresIn: '1h' });
+      res.json({ message: "Success", username:user.name,userId: user._id, token });
     } else {
       res.send("Wrong Password");
     }

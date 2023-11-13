@@ -9,6 +9,7 @@ const PAGE_SIZE = 5;
 
 const TaskList = () => {
   const tasks = useSelector(state => state.tasks.tasks)?? [];
+  const token = useSelector(state => state.auth.token);
   const isLoggedIn = useSelector(state => state.auth.userIsLoggedIn);
   const userId = useSelector(state => state.auth.userId);
   const dispatch = useDispatch();
@@ -28,7 +29,7 @@ const TaskList = () => {
 
   useEffect(() => {
     if(isLoggedIn){
-      dispatch(fetchTasks({ userId }));
+      dispatch(fetchTasks({ userId, token }));
     }    
   }, [userId]);
 

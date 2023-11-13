@@ -4,7 +4,7 @@ export const loginUser = (userData) => {
   return async (dispatch) => {
     try {
       const response = await axios.post('http://localhost:5500/user/login', userData);
-      dispatch({ type: 'LOGIN', username:response.data.username,userId: response.data.userId, reducer: "auth" });
+      dispatch({ type: 'LOGIN', username:response.data.username,userId: response.data.userId, token:response.data.token ,reducer: "auth" });
     } catch (error) {
       console.log(error);
     }
