@@ -1,0 +1,32 @@
+/* PaginationControl.css */
+
+.pagination {
+    display: flex;
+    justify-content: center; /* Center-align the pagination numbers */
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.pagination li {
+    margin: 0 5px;
+}
+
+.pagination a {
+    text-decoration: none;
+    padding: 8px 12px;
+    border: 1px solid #3498db;
+    color: #3498db;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.pagination a:hover {
+    background-color: #3498db;
+    color: #ffffff;
+}
+
+.pagination .active a {
+    background-color: #3498db;
+    color: #ffffff;
+}

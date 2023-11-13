@@ -1,4 +1,9 @@
 /*TaskList.css*/
+
+h2 {
+  text-align: center;
+}
+
 .task-list-container {
   width: 100%;
   max-width: 400px; /* Adjusted to match TaskForm */
@@ -11,19 +16,21 @@
 }
 
 .task-list h2 {
+  text-align: center;
   font-size: 1.5rem;
   margin-bottom: 20px;
   color: #333333;
 }
 
-.task-item {  
+.task-item {
   list-style: none;
   padding: 16px;
   background-color: #f9f9f9;
   border: 1px solid #e0e0e0;
   border-radius: 5px;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr auto auto; /* Three columns, adjust as needed */
+  gap: 10px;
   align-items: center;
   margin-bottom: 10px;
   transition: background-color 0.3s;
@@ -57,7 +64,7 @@
 }
 
 .task-item button.edit-button {
-  margin-right: 10px;
+  /* No need to change the order, they will be in the correct order in the grid */
 }
 
 .task-item button.delete-button {

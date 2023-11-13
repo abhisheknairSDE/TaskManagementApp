@@ -4,7 +4,7 @@ export const loginUser = (userData) => {
   return async (dispatch) => {
     try {
       const response = await axios.post('http://localhost:5500/user/login', userData);
-      dispatch({ type: 'LOGIN', username:response.data.username,userId: response.data.userId });
+      dispatch({ type: 'LOGIN', username:response.data.username,userId: response.data.userId, reducer: "auth" });
     } catch (error) {
       console.log(error);
     }
@@ -15,7 +15,7 @@ export const loginUser = (userData) => {
   return async (dispatch) => {
     try{
       const response = await axios.post('http://localhost:5500/user/add', userData);
-      dispatch({ type: 'LOGIN', username:response.data.username,userId: response.data.userId });
+      dispatch({ type: 'LOGIN', username:response.data.username,userId: response.data.userId, reducer: "auth"  });
     }catch(error){
       console.log(error);
     }
@@ -25,6 +25,7 @@ export const loginUser = (userData) => {
   export const logoutUser = () => {
     return (dispatch) => {
       dispatch({type: 'LOGOUT'})
+      
     } 
   };
   

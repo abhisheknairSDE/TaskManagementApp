@@ -24,6 +24,10 @@ const tasksReducer = (state = initialState, action) => {
             ...state,
             tasks: state.tasks.map((task) => task.id === action.payload.id ? action.payload : task),
         };
+    case "LOGOUT":
+      return{
+        initialState
+      }
     default:
       return state;
   }

@@ -3,7 +3,6 @@ const Task = require('../models/tasks.model');
 
 router.route('/').get(async (req, res) => {
     const userId = req.query.createdBy;
-
     try {
       const tasks = await Task.find({ createdBy: userId });
       res.json(tasks);

@@ -57,7 +57,7 @@ const Signup = () => {
         password: formData.password,
       }
       dispatch(addUser(user));
-      navigate('/create');
+      navigate('/');
     }
   };
 

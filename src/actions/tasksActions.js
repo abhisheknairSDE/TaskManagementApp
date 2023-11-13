@@ -1,5 +1,4 @@
 import axios from "axios";
-// Fetching tasks disptach function
 export const fetchTasks = ({ userId }) => {
   return async (dispatch) => {
     try {

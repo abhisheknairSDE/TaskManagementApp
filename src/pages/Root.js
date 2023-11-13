@@ -4,7 +4,9 @@ import Navbar from "../containers/Navbar"
 const Root = () =>{
     return <>
     <Navbar />
-    <Outlet />
+    <div style={{ marginTop: "80px" }}>
+        <Outlet />
+      </div>
     </>
 }
 

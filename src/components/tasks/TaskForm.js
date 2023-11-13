@@ -4,10 +4,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { addTasks } from "../../actions/tasksActions";
 
 const TaskForm = () => {
+
   const [inputTitle, setInputTitle] = useState("");
   const [inputDesciption, setInputDesciption] = useState("");
   const createdBy = useSelector(state => state.auth.userId);
   const dispatch = useDispatch();
+  const isLoggedIn = useSelector(state => state.auth.userIsLoggedIn)
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,7 +24,8 @@ const TaskForm = () => {
   };
 
   return (
-    <div className="form-wrapper">
+    <>
+    {isLoggedIn ? <div className="form-wrapper">
       <h2>Create Task</h2>
       <form onSubmit={handleSubmit}>
         <input
@@ -43,7 +46,8 @@ const TaskForm = () => {
           Create Task
         </button>
       </form>
-    </div>
+    </div> : <h2> Login or Singup to create tasks</h2>}
+    </>
   );
 };
 

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { loginUser } from '../../actions/authActions';
 import './Login.css'
 import logo from './logo.png'
@@ -10,6 +10,7 @@ function Login() {
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const handleEmailChange = (e) => {
@@ -57,6 +58,7 @@ function Login() {
       };
 
       dispatch(loginUser(userData));
+      navigate('/');
     }
   };
 
