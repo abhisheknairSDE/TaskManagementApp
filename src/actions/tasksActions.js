@@ -32,4 +32,36 @@ export const addTasks = ({ title, description, createdBy }) => {
             console.error(err);
           }
     }
-}
+};
+
+export const editTasks = ({ id, title, description }) => {
+  return async (dispatch) => {
+    try {
+      const response = await axios.put(`http://localhost:5500/tasks/edit/${id}`, {
+        title,
+        description,
+      });
+
+      if (response.status === 200) {
+        const editedTask = { id, title, description };
+        dispatch({ type: 'EDIT', payload: [editedTask], reducer: 'tasks' });
+      }
+    } catch (err) { 
+      console.error(err);
+    }
+  };
+};
+
+export const deleteTasks = (taskId) => {
+  return async (dispatch) => {
+    try {
+      const response = await axios.delete(`http://localhost:5500/tasks/delete/${taskId}`);
+
+      if (response.status === 200) {
+        dispatch({ type: 'DELETE', payload: taskId, reducer: 'tasks' });
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
+};

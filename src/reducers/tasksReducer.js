@@ -15,19 +15,31 @@ const tasksReducer = (state = initialState, action) => {
         tasks: [...state.tasks, ...action.payload],
       };
     case "DELETE":
-        return {
-            ...state,
-            tasks: state.tasks.filter((task) => task.id !== action.payload),
-        };
+      const updatedTasksAfterDelete = state.tasks.filter(
+        (task) => task._id !== action.payload
+      );
+      return {
+        ...state,
+        tasks: updatedTasksAfterDelete,
+      };
     case "EDIT":
-        return {
-            ...state,
-            tasks: state.tasks.map((task) => task.id === action.payload.id ? action.payload : task),
-        };
+      const updatedTasks = state.tasks.map((task) =>
+        task._id === action.payload[0].id
+          ? {
+              ...task,
+              title: action.payload[0].title,
+              description: action.payload[0].description,
+            }
+          : task
+      );
+      return {
+        ...state,
+        tasks: updatedTasks,
+      };
     case "LOGOUT":
-      return{
-        initialState
-      }
+      return {
+        initialState,
+      };
     default:
       return state;
   }
