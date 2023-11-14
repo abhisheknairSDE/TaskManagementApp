@@ -1,6 +1,5 @@
 const express = require('express');
 const cors = require('cors');
-const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
 
 require('dotenv').config();
@@ -10,7 +9,6 @@ const port = process.env.PORT || 5500;
 
 app.use(cors());
 app.use(express.json());
-app.use(cookieParser());
 
 const uri = process.env.ATLAS_URI;
 
