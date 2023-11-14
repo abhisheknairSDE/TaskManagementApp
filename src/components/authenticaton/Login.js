@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { loginUser } from '../../actions/authActions';
 import './Login.css'
@@ -10,6 +10,7 @@ function Login() {
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
+  const isLoggedIn = useSelector(state => state.auth.userIsLoggedIn);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -58,7 +59,7 @@ function Login() {
       };
 
       dispatch(loginUser(userData));
-      navigate('/');
+      if(isLoggedIn){navigate('/');}
     }
   };
 

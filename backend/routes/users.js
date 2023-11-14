@@ -13,9 +13,14 @@ router.route("/add").post(async (req, res) => {
       name: req.body.name,
       password: hashedPassword,
     });
+    
     newUser
       .save()
-      .then((user) => res.json({name: user.name, userId: user._id}))
+      .then((user) => {
+        const secretKey = process.env.ACCESS_TOKEN_SECRET;
+      const token = jwt.sign({ userId: user._id }, secretKey, { expiresIn: '1h' });
+      console.log(token + 'FOR USER' + user.name)
+        res.json({ message: "Success", username:user.name,userId: user._id, token })})
       .catch((err) => res.status(400).json(err));
   } catch (err) {
     res.status(500).json(err);

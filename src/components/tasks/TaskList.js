@@ -31,7 +31,7 @@ const TaskList = () => {
     if(isLoggedIn){
       dispatch(fetchTasks({ userId, token }));
     }    
-  }, [userId]);
+  }, [dispatch, userId, isLoggedIn, token]);
 
   const indexOfLastTask = currentPage * PAGE_SIZE;
   const indexOfFirstTask = indexOfLastTask - PAGE_SIZE;
