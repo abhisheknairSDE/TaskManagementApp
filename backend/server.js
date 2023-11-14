@@ -1,6 +1,7 @@
 const express = require('express');
-const cors = require('cors');
+const cors = require('cors');   
 const mongoose = require('mongoose');
+const path = require('path');
 
 require('dotenv').config();
 
@@ -30,6 +31,19 @@ const usersRouter = require('./routes/users');
 
 app.use('/tasks',taskRouter);
 app.use('/user', usersRouter);
+
+// ------------------ Deployment -------------
+
+const __dirname1 = path.resolve();
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static(path.join(__dirname1, "/frontend/build")));
+  
+    app.get("*", (req, res) =>
+      res.sendFile(path.resolve(__dirname1, "frontend", "build", "index.html"))
+    );
+  }
+
+// ------------------ Deployment -------------
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);

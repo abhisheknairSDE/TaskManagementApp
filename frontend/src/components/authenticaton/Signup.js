@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux';
 import { addUser } from '../../actions/authActions';
-import logo from './logo.png'
 import './Signup.css'; 
+import Logo from '../../images/logo.png'
 
 const Signup = () => {
     const dispatch = useDispatch();
@@ -62,7 +62,7 @@ const Signup = () => {
   return (
     <div className="container">
       <div className="logo">
-        <img src={logo} alt="Logo" />
+        <img src={Logo} alt="Logo" />
       </div>
       <div className="form-section">
         <h1>Sign Up</h1>

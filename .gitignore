@@ -9,12 +9,13 @@
 /backend/.env
 /backend/node_modules/
 /frontend/node_modules/
+.env
 
 # testing
 /coverage
 
 # production
-/build
+frontend/build
 
 # misc
 .DS_Store

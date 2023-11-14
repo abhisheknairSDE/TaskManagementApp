@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { loginUser } from '../../actions/authActions';
 import './Login.css'
-import logo from './logo.png'
+import Logo from '../../images/logo.png'
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -59,14 +59,14 @@ function Login() {
       };
 
       dispatch(loginUser(userData));
-      if(isLoggedIn){navigate('/');}
+      navigate('/');
     }
   };
 
   return (
     <div className="container">
       <div className="logo">
-        <img src={logo} alt="Logo" />
+        <img src={Logo} alt="Logo" />
       </div>
       <div className="form-section">
         <h1>Sign In</h1>
