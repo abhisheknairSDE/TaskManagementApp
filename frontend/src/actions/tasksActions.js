@@ -3,7 +3,7 @@ import axios from "axios";
 export const fetchTasks = ({ userId, token }) => {
   return async (dispatch) => {
     try {
-      const response = await axios.get("http://localhost:5500/tasks/", {
+      const response = await axios.get("https://taskbuddy-nw4u.onrender.com/tasks/", {
         params: {
           createdBy: userId,
           token,
@@ -21,7 +21,7 @@ export const fetchTasks = ({ userId, token }) => {
 export const addTasks = ({ title, description, createdBy }) => {
     return async (dispatch) =>{
         try {
-            const response = await axios.post('http://localhost:5500/tasks/add', {
+            const response = await axios.post('https://taskbuddy-nw4u.onrender.com/tasks/add', {
                 title,
                 description,
                 createdBy
@@ -39,7 +39,7 @@ export const addTasks = ({ title, description, createdBy }) => {
 export const editTasks = ({ id, title, description }) => {
   return async (dispatch) => {
     try {
-      const response = await axios.put(`http://localhost:5500/tasks/edit/${id}`, {
+      const response = await axios.put(`https://taskbuddy-nw4u.onrender.com/tasks/edit/${id}`, {
         title,
         description,
       });
@@ -57,7 +57,7 @@ export const editTasks = ({ id, title, description }) => {
 export const deleteTasks = (taskId) => {
   return async (dispatch) => {
     try {
-      const response = await axios.delete(`http://localhost:5500/tasks/delete/${taskId}`);
+      const response = await axios.delete(`https://taskbuddy-nw4u.onrender.com/tasks/delete/${taskId}`);
 
       if (response.status === 200) {
         dispatch({ type: 'DELETE', payload: taskId, reducer: 'tasks' });
