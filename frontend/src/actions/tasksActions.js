@@ -11,7 +11,7 @@ export const fetchTasks = ({ userId, token }) => {
         },
       });
       console.log(response);
-      if (response.statusText === "OK") {
+      if (response.status == 200) {
         dispatch({ type: "FETCH", payload: response.data, reducer: "tasks" });
       }
     } catch (error) {
