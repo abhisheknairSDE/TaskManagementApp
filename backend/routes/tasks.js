@@ -4,7 +4,7 @@ const jwtMiddleware = require('../middlewear/check-auth')
 
 
 router.route('/').get(jwtMiddleware, async (req, res) => {
-
+  console.log('==== INSIDE FETCH API AFTER JWT =====');
     const userId = req.query.createdBy;
     try {
       const tasks = await Task.find({ createdBy: userId });

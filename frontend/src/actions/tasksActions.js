@@ -3,6 +3,7 @@ import axios from "axios";
 export const fetchTasks = ({ userId, token }) => {
   return async (dispatch) => {
     try {
+      console.log('===== THIS IS INSIDE FETCH BEFORE API ====');
       const response = await axios.get("https://taskbuddy-nw4u.onrender.com/tasks/", {
         params: {
           createdBy: userId,
@@ -13,6 +14,7 @@ export const fetchTasks = ({ userId, token }) => {
         dispatch({ type: "FETCH", payload: response.data, reducer: "tasks" });
       }
     } catch (error) {
+      console.log('ERROR in FETCH API');
       console.error(error);
     }
   };
