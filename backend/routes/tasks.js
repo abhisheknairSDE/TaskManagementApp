@@ -8,8 +8,10 @@ router.route('/').get(jwtMiddleware, async (req, res) => {
     const userId = req.query.createdBy;
     try {
       const tasks = await Task.find({ createdBy: userId });
+      console.log(tasks);
       res.json(tasks);
     } catch (err) {
+      console.log('=== THIS IS THE ERROR FOR FETCH API ' + err)
       res.status(400).json(err);
     }
   });
