@@ -10,6 +10,7 @@ export const fetchTasks = ({ userId, token }) => {
           token,
         },
       });
+      console.log(response);
       if (response.statusText === "OK") {
         dispatch({ type: "FETCH", payload: response.data, reducer: "tasks" });
       }
