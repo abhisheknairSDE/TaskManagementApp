@@ -26,6 +26,8 @@ const TaskList = () => {
   const [editingTask, setEditingTask] = useState(null);
   const [editFormVisible, setEditFormVisible] = useState(false);
 
+  const [inputFieldValue, setInputFieldValue] = useState('');
+
   const editHandler = (task) => {
     setEditingTask(task);
     setEditFormVisible(true);
