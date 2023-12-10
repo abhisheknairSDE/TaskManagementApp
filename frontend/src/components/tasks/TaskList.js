@@ -58,6 +58,7 @@ const TaskList = () => {
               ? "Task List"
               : "Add some tasks to see them here!"}
           </h2>
+          <input className='filterbox' value={inputFieldValue} onChange={(e) => setInputFieldValue(e.target.value)}/>
           <ul>
             {editFormVisible && (
               <EditTaskForm
