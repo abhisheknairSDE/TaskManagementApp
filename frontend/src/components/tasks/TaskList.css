@@ -4,7 +4,7 @@ h2 {
 
 .filterbox {
   width: 100%;
-  max-width: 300px; /* Adjust the width as needed */
+  max-width: 300px; 
   margin: 0 auto;
   padding: 8px;
   border: 1px solid #e0e0e0;
@@ -15,7 +15,7 @@ h2 {
 }
 
 .filterbox:focus {
-  outline: none; /* Remove the default focus outline if needed */
+  outline: none;
 }
 
 .task-list-container {
